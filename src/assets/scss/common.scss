@@ -1,0 +1,126 @@
+html {height: 100%;}
+html, body {
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after, *::before, *::after {
+	box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  color: #58666e;
+  background-color: transparent;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td, img {
+	margin: 0;
+	padding: 0
+}
+button, input, select, textarea {
+	font-family: 'Open Sans',Arial,sans-serif;
+	border: none;
+	outline: none;
+}
+textarea, input, select {
+	-webkit-appearance: none
+}
+body {
+	min-width: 320px;
+	overflow-x: hidden;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:inherit|grayscale;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%
+}
+address, cite, dfn, em, var {
+	font-style: normal
+}
+code, kbd, pre, samp {
+	font-family: couriernew, courier, monospace
+}
+small {
+	font-size: 12px
+}
+em, i {
+	font-style: normal
+}
+ul, ol, li {
+	list-style: none
+}
+video {
+	background-color: #000
+}
+label {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	tap-highlight-color: transparent;
+	user-select: none;
+}
+a:link, a:visited, a:hover {
+	text-decoration: none;
+}
+a:active {
+	color: #fff;
+}
+sup {
+	vertical-align: text-top
+}
+sub {
+	vertical-align: text-bottom
+}
+legend {
+	color: #000
+}
+fieldset, img {
+	border: 0
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle
+}
+button, input, select, textarea {
+	font-size: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+.cf{
+	zoom:1;
+}
+.cf:after{
+	content:'';
+	display:block;
+	clear:both;
+	height:0;
+	overflow:hidden;
+	visibility:hidden;
+}
+[v-cloak] {
+	display: none;
+}
+@for $i from 1 through 10 {
+	.w-#{$i * 50} { width: 5px * $i !important;}
+
+	.pa-#{$i * 5} { padding: 5px * $i !important;}
+	.pt-#{$i * 5} { padding-top: 5px * $i !important;}
+	.pb-#{$i * 5} { padding-bottom: 5px * $i !important;}
+	.pl-#{$i * 5} { padding-left: 5px * $i !important;}
+	.pr-#{$i * 5} { padding-right: 5px * $i !important;}
+
+	.ma-#{$i * 5} { margin: 5px * $i !important;}
+	.mt-#{$i * 5} { margin-top: 5px * $i !important;}
+	.mb-#{$i * 5} { margin-bottom: 5px * $i !important;}
+	.ml-#{$i * 5} { margin-left: 5px * $i !important;}
+	.mr-#{$i * 5} { margin-right: 5px * $i !important;}
+}

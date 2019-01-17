@@ -1,0 +1,69 @@
+.
+├── README.md
+├── babel.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   └── index.html
+├── src
+│   ├── App.vue
+│   ├── api
+│   │   ├── axios.js
+│   │   └── index.js
+│   ├── assets
+│   │   ├── fonts
+│   │   │   ├── font-awesome
+│   │   │   │   ├── css
+│   │   │   │   │   ├── font-awesome.css
+│   │   │   │   │   └── font-awesome.min.css
+│   │   │   │   └── fonts
+│   │   │   │       ├── FontAwesome.otf
+│   │   │   │       ├── fontawesome-webfont.eot
+│   │   │   │       ├── fontawesome-webfont.svg
+│   │   │   │       ├── fontawesome-webfont.ttf
+│   │   │   │       └── fontawesome-webfont.woff
+│   │   │   └── simple-line-icons
+│   │   │       ├── css
+│   │   │       │   └── simple-line-icons.css
+│   │   │       └── fonts
+│   │   │           ├── Simple-Line-Icons.eot
+│   │   │           ├── Simple-Line-Icons.svg
+│   │   │           ├── Simple-Line-Icons.ttf
+│   │   │           └── Simple-Line-Icons.woff
+│   │   ├── images
+│   │   └── scss
+│   │       ├── common.scss
+│   │       └── hm-variables.scss
+│   ├── components
+│   │   ├── badge
+│   │   │   ├── index.js
+│   │   │   └── src
+│   │   │       └── badge.vue
+│   │   ├── buttonUpload.vue
+│   │   ├── screenFull.vue
+│   │   └── upload
+│   │       ├── index.js
+│   │       └── src
+│   │           └── scriptUpload.vue
+│   ├── filter
+│   │   └── index.js
+│   ├── main.js
+│   ├── router
+│   │   └── index.js
+│   ├── store
+│   │   ├── index.js
+│   │   └── modules
+│   │       └── user.js
+│   └── views
+│       ├── layout
+│       │   └── header.vue
+│       ├── login.vue
+│       ├── noFound.vue
+│       └── script
+│           ├── index.vue
+│           └── list.vue
+├── tree.txt
+└── vue.config.js
+
+25 directories, 41 files
