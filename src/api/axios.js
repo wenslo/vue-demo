@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Qs from 'qs'
+// import Qs from 'qs'
 import router from '@/router'
 import store from '@/store'
 import { Notification } from 'element-ui'
@@ -11,9 +11,9 @@ const Axios = axios.create({
 	},
 	// #transformRequest 允许在向服务器发送前，修改传递参数
 	// #这里通过Qs.stringify转换为表单查询参数
-	transformRequest: [data => {
-		return Qs.stringify(data)
-	}],
+	// transformRequest: [data => {
+	// 	return Qs.stringify(data)
+	// }],
 	// 设置允许跨域
 	withCredentials: true,
 	timeout: 80000
@@ -28,13 +28,13 @@ Axios.interceptors.request.use(config => {
 // response响应拦截器
 Axios.interceptors.response.use(async response => {
 	let resData = response.data
-	if (resData.errorCode === 401) {
+	if (resData.code === 401) {
 		await store.dispatch('user/userReset')
 		router.push('/login')
 	}
 
-	if (resData.code === '200') {
-		return resData
+	if (resData.code === 200) {
+		return resData.data
 	} else {
 		Notification.error({
 			title: '错误 ' + (resData.code + ':' + response.config.url.replace(/\/api/g, '') || '>_<'),
@@ -43,7 +43,6 @@ Axios.interceptors.response.use(async response => {
 	}
 }, error => {
 	// 对响应错误做点什么
-	console.log(error)
 	if (error && error.response) {
 		switch (error.response.status) {
 		case 504:

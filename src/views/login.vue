@@ -8,7 +8,7 @@
 			prefix-icon="icon-user"
 			class="username"
 			type="text"
-			v-model="loginName"
+			v-model="username"
 			placeholder="用户名">
 		</el-input>
 		<el-input
@@ -25,7 +25,7 @@
 		<el-button
 			type="primary"
 			:disabled="buttonStates"
-			@click="userLogin({loginName, password})"
+			@click="userLogin({username, password})"
 		>
 			登 录
 		</el-button>
@@ -62,14 +62,14 @@ export default {
 	name: 'login',
 	data () {
 		return {
-			loginName: '',
+			username: '',
 			password: '',
 			rememberMe: true
 		}
 	},
 	computed: {
 		buttonStates () {
-			return !this.loginName || !this.password
+			return !this.username || !this.password
 		}
 	},
 	methods: {

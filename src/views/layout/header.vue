@@ -12,7 +12,7 @@
 			<el-dropdown class="user">
 				<span class="el-dropdown-link">
 					<i class="icon-user mr-5"></i>
-					{{user.loginName}}
+					{{user.username}}
 				</span>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item @click.native="userLoginOut"><i class="icon-logout mr-5"></i> 退出</el-dropdown-item>
