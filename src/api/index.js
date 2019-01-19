@@ -16,12 +16,10 @@ class Api {
 		return Axios.post('/loginout')
 	}
 	/**
-	 * 获取剧本列表信息数据
+	 * 获取用户列表信息数据
 	 */
-	getScriptList (params = {}) {
-		return Axios.get('/adminUserAuth/scriptReport/bookList', {
-			params: params
-		})
+	getScriptList (params) {
+		return Axios.post('/user/queryByPage', params)
 	}
 }
 export default new Api()

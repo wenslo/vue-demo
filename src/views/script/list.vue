@@ -122,9 +122,10 @@ export default {
 		return {
 			listData: [],	// 剧本数据列表
 			listQuery: {	// 剧本数据参数集合，包括分页信息
-				search: '',
-				pageSize: 15,
-				pageNum: 0
+				pageable: {
+					page: 0,
+					size: 15
+				}
 			},
 			pageSizes: [10, 15, 20, 25, 30],	// 每页显示个数选择器的选项设置
 			pageLayout: 'total, sizes, prev, pager, next, jumper'	// 组件布局，子组件名用逗号分隔
@@ -141,18 +142,18 @@ export default {
 	},
 	methods: {
 		/**
-		 * 获取报告列表信息
+		 * 获取用户列表信息
 		 */
 		getScriptList () {
-			API.getScriptList(this.listQuery).then(res => {
-				this.listData = res.data
+			API.getScriptList(this.listQuery).then(data => {
+				this.listData = data
 			})
 		},
 		/**
 		 * 每页条数改变时触发
 		 */
 		sizeChange (num) {
-			this.listQuery.pageSize = num
+			this.listQuery.pageable.size = num
 			this.getScriptList()
 		},
 		/**
@@ -160,7 +161,7 @@ export default {
 		 */
 		currentChange (num) {
 			// 后端接口页码从0开始，所以这里要在当前页码基础上-1
-			this.listQuery.pageNum = num - 1
+			this.listQuery.pageable.page = num - 1
 			this.getScriptList()
 		},
 		/**

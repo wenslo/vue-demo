@@ -27,23 +27,35 @@ Axios.interceptors.request.use(config => {
 // response响应拦截器
 Axios.interceptors.response.use(async response => {
 	let resData = response.data
-	if (resData.code === 401) {
-		await store.dispatch('user/userReset')
-		router.push('/login')
-	}
+	if (resData.code) {
+		// 说明为通用协议
+		if (resData.code === 401) {
+			await store.dispatch('user/userReset')
+			router.push('/login')
+		}
 
-	if (resData.code === 200) {
-		return resData.data
+		if (resData.code === 200) {
+			return resData
+		} else {
+			Notification.error({
+				title: '错误 ' + (resData.code + ':' + '⊙﹏⊙‖∣°'),
+				message: resData.msg || '出错了'
+			})
+		}
 	} else {
-		Notification.error({
-			title: '错误 ' + (resData.code + ':' + '⊙﹏⊙‖∣°'),
-			message: resData.msg || '出错了'
-		})
+		// 说明为分页协议
+		return resData
 	}
 }, error => {
 	// 对响应错误做点什么
 	if (error && error.response) {
 		switch (error.response.status) {
+		case 500:
+			Notification.error({
+				title: '服务器错误 ⊙﹏⊙‖∣°',
+				message: '出错了'
+			})
+			break
 		case 504:
 			break
 		case 502:
