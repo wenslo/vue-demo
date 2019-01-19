@@ -20,7 +20,6 @@ const Axios = axios.create({
 })
 // request拦截
 Axios.interceptors.request.use(config => {
-	localStorage.accessToken && (config.headers.AccessToken = localStorage.accessToken)
 	return config
 }, error => {
 	return Promise.reject(error)
@@ -37,7 +36,7 @@ Axios.interceptors.response.use(async response => {
 		return resData.data
 	} else {
 		Notification.error({
-			title: '错误 ' + (resData.code + ':' + response.config.url.replace(/\/api/g, '') || '>_<'),
+			title: '错误 ' + (resData.code + ':' + '⊙﹏⊙‖∣°'),
 			message: resData.msg || '出错了'
 		})
 	}

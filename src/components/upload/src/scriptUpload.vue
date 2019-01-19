@@ -21,7 +21,6 @@
 		drag
 		:auto-upload="false"
 		:action="baseURL + '/adminUserAuth/scriptReport/uploadBook44'"
-		:headers="uploadHeaders"
 		:limit="limit"
 		:accept="accept"
 		:on-exceed="onExceed"
@@ -65,9 +64,6 @@ export default {
 		}
 	},
 	computed: {
-		uploadHeaders () {
-			return { AccessToken: store.state.user.accessToken }
-		},
 		acceptArr () {
 			return this.accept.split(',')
 		}
