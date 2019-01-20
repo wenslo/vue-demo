@@ -4,7 +4,7 @@
 		<div class="hm-layout-cell hm-flex">
 			<img class="logo" src="@/assets/images/logo-mini.png" :title="$root.app.name">
 			<ul class="menu">
-				<router-link tag="li" :to="{name:'scriptList'}">剧本报告编写</router-link>
+				<router-link tag="li" :to="{name:'scriptList'}">用户</router-link>
 			</ul>
 			<div class="action">
 				<Hm-Screenfull></Hm-Screenfull>

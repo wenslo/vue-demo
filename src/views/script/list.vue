@@ -15,86 +15,63 @@
 		<el-table-column
 			width="135"
 			align="center"
-			prop="createdAt"
-			label="日期"
+			prop="id"
+			label="序号"
 			sortable
 		>
-			<template slot-scope="scope">
-				{{scope.row.createdAt | timestamp2date}}
-			</template>
 		</el-table-column>
 		<el-table-column
 			align="center"
-			prop="title"
-			label="剧本名称"
-			show-overflow-tooltip
-		>
-		</el-table-column>
-		<el-table-column
-			align="center"
-			prop="author"
+			prop="username"
 			label="用户名称"
-		>
-		</el-table-column>
-		<el-table-column
-			align="center"
-			prop="author"
-			label="编剧"
-		>
-		</el-table-column>
-		<el-table-column
-			width="80"
-			align="center"
-			prop="categoryName"
-			label="剧本类型"
 		>
 		</el-table-column>
 		<el-table-column
 			width="105"
 			align="center"
-			prop="calcuStatus"
-			label="智能分析状态"
-			column-key="calcuStatus"
+			prop="enabled"
+			label="启用状态"
+			column-key="enabled"
 			:filters="[
-				{ text: '正在分析', value: 0 },
-				{ text: '分析完成', value: 1 }
+				{ text: '已禁用', value: 0 },
+				{ text: '已启用', value: 1 }
 			]"
-			:filter-method="filterCalcuStatus"
+			:filter-method="filterAccountNonLocked"
 			filter-placement="bottom-end"
 		>
 			<template slot-scope="scope">
 				<!-- close working success warning danger -->
-				<hm-badge :type="scope.row.calcuStatus ? 'success' : 'working'">
-					{{scope.row.calcuStatus ? '分析完成' : '正在分析'}}
+				<hm-badge :type="scope.row.enabled ? 'danger' : 'working'">
+					{{scope.row.enabled ? '已禁用' : '已启用'}}
 				</hm-badge>
 			</template>
 		</el-table-column>
 		<el-table-column
 			align="center"
-			prop="status"
-			label="编辑状态"
+			prop="roles"
+			label="所属角色"
 		>
 			<template slot-scope="scope">
-				{{scope.row.calcuStatus}}/10
-			</template>
-		</el-table-column>
-		<el-table-column
-			width="250"
-			align="center"
-			label="操作"
-		>
-			<template slot-scope="scope">
-				<el-button :data="scope" type="text" size="mini" icon="el-icon-edit">编辑报告</el-button>
-				<el-button type="text" size="mini" icon="el-icon-download">下载剧本</el-button>
-				<hm-buttonUpload />
+				<el-tag v-if="scope.row.roles.length === 0">
+					{{ '无' }}
+				</el-tag>
+				<el-tag :key="index" v-for="(role, index) in scope.row.roles">
+					{{ role.roleName}}
+				</el-tag>
 			</template>
 		</el-table-column>
 		<el-table-column
 			align="center"
-			label="报告确认"
+			prop="organizations"
+			label="机构信息"
 		>
 			<template slot-scope="scope">
-				<el-button :data="scope" type="primary" size="mini">确认报告</el-button>
+				<el-tag v-if="scope.row.organizations.length === 0">
+					{{ '无' }}
+				</el-tag>
+				<el-tag :key="index" v-for="(organization, index) in scope.row.organizations">
+					{{ organization.name}}
+				</el-tag>
 			</template>
 		</el-table-column>
 	</el-table>
@@ -116,12 +93,11 @@
 import API from '@/api'
 import { timestamp2date } from '@/filter'
 import HmBadge from '@/components/badge'
-import HmButtonUpload from '@/components/buttonUpload'
 export default {
 	data () {
 		return {
-			listData: [],	// 剧本数据列表
-			listQuery: {	// 剧本数据参数集合，包括分页信息
+			listData: [],	// 列表数据列表
+			listQuery: {	// 列表数据参数集合，包括分页信息
 				pageable: {
 					page: 0,
 					size: 15
@@ -169,16 +145,15 @@ export default {
 		 */
 		handleSelection (val) {
 		},
-		filterCalcuStatus (val, row, column) {
-			return row.calcuStatus === val
+		filterAccountNonLocked (val, row, column) {
+			return row.enabled === val
 		}
 	},
 	filters: {
 		timestamp2date
 	},
 	components: {
-		HmBadge,
-		HmButtonUpload
+		HmBadge
 	}
 }
 </script>

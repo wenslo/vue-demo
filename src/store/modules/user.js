@@ -24,10 +24,12 @@ export default {
 			password: ''
 		}) {
 			const _result = await API.login(params)
-			const _data = _result.data
-			if (_data) {
-				await commit('USER_SET_INFO', _data.user)
-				router.push('/script')
+			if (_result) {
+				const _data = _result.data
+				if (_data) {
+					await commit('USER_SET_INFO', _data.user)
+					router.push('/script')
+				}
 			}
 		},
 		/**
