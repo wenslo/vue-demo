@@ -76,7 +76,7 @@
 		@current-change="currentChange"
 		:current-page="currentNumber"
 		:page-sizes="pageSizes"
-		:pager-count="listData.totalPages"
+		:page-count="listData.totalPages"
 		:page-size="listData.size"
 		:layout="pageLayout"
 		:total="listData.totalElements"

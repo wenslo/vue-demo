@@ -10,16 +10,22 @@ export default new Router({
 			redirect: '/login'
 		},
 		{
-			path: '/script',
-			name: 'script',
-			component: () => import('@/views/script/index'),
-			redirect: '/script/list',
+			path: '/',
+			name: 'index',
+			meta: { title: '首页' },
+			component: () => import('@/views/index')
+		},
+		{
+			path: '/user',
+			name: 'user',
+			component: () => import('@/views/user/index'),
+			redirect: '/user/list',
 			children: [
 				{
-					name: 'scriptList',
-					path: '/script/list',
+					name: 'userList',
+					path: '/user/list',
 					meta: { title: '首页' },
-					component: () => import('@/views/script/list')
+					component: () => import('@/views/user/list')
 				}
 			]
 		},

@@ -3,7 +3,7 @@
 		<el-menu
 			default-active="1"
 			class="el-menu-vertical-demo"
-			@vue-router="true"
+			router
 		>
 			<el-submenu index="1">
 				<template slot="title">
@@ -16,12 +16,6 @@
 						route="user"
 					>
 						用户管理
-					</el-menu-item>
-					<el-menu-item
-						index="1-2"
-						route="role"
-					>
-						角色管理
 					</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
