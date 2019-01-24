@@ -32,11 +32,6 @@
 			prop="enabled"
 			label="启用状态"
 			column-key="enabled"
-			:filters="[
-				{ text: '已禁用', value: 0 },
-				{ text: '已启用', value: 1 }
-			]"
-			:filter-method="filterAccountNonLocked"
 			filter-placement="bottom-end"
 		>
 			<template slot-scope="scope">
@@ -56,7 +51,7 @@
 					{{ '无' }}
 				</el-tag>
 				<el-tag :key="index" v-for="(role, index) in scope.row.roles">
-					{{ role.roleName}}
+					{{ role.name}}
 				</el-tag>
 			</template>
 		</el-table-column>
@@ -81,6 +76,7 @@
 		@current-change="currentChange"
 		:current-page="currentNumber"
 		:page-sizes="pageSizes"
+		:pager-count="listData.totalPages"
 		:page-size="listData.size"
 		:layout="pageLayout"
 		:total="listData.totalElements"
@@ -144,9 +140,6 @@ export default {
 		 * 表头复选框change事件
 		 */
 		handleSelection (val) {
-		},
-		filterAccountNonLocked (val, row, column) {
-			return row.enabled === val
 		}
 	},
 	filters: {
