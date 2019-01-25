@@ -1,25 +1,27 @@
 <template>
 <div class="hm-header-cell">
-	<div class="fixed">
-		<div class="hm-layout-cell hm-flex">
-			<img class="logo" src="@/assets/images/logo-mini.png" :title="$root.app.name">
-			<ul class="menu">
-				<router-link tag="li" :to="{name:'scriptList'}">用户</router-link>
-			</ul>
-			<div class="action">
-				<Hm-Screenfull></Hm-Screenfull>
+	<el-header>
+		<div class="fixed">
+			<div class="hm-layout-cell hm-flex">
+				<img class="logo" src="@/assets/images/logo-mini.png" :title="$root.app.name">
+				<ul class="menu">
+					<router-link tag="li" :to="{name:'scriptList'}">用户</router-link>
+				</ul>
+				<div class="action">
+					<Hm-Screenfull></Hm-Screenfull>
+				</div>
+				<el-dropdown class="user">
+					<span class="el-dropdown-link">
+						<i class="icon-user mr-5"></i>
+						{{user.username}}
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item @click.native="userLoginOut"><i class="icon-logout mr-5"></i> 退出</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
 			</div>
-			<el-dropdown class="user">
-				<span class="el-dropdown-link">
-					<i class="icon-user mr-5"></i>
-					{{user.username}}
-				</span>
-				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item @click.native="userLoginOut"><i class="icon-logout mr-5"></i> 退出</el-dropdown-item>
-				</el-dropdown-menu>
-			</el-dropdown>
 		</div>
-	</div>
+	</el-header>
 </div>
 </template>
 <script>
