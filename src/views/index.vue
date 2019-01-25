@@ -1,42 +1,51 @@
 <template>
 	<div>
-		<v-header/>
-		<v-menu/>
+		<el-container style="height: 100%; border: 1px solid #eee">
+			<v-menu/>
+			<el-container>
+				<v-header/>
+				<!--<el-main>-->
+					<!--<el-table :data="tableData">-->
+						<!--<el-table-column prop="date" label="日期" width="140">-->
+						<!--</el-table-column>-->
+						<!--<el-table-column prop="name" label="姓名" width="120">-->
+						<!--</el-table-column>-->
+						<!--<el-table-column prop="address" label="地址">-->
+						<!--</el-table-column>-->
+					<!--</el-table>-->
+				<!--</el-main>-->
+			</el-container>
+		</el-container>
 	</div>
 </template>
-
 <script>
-import vHeader from '@/views/layout/header'
 import vMenu from '@/views/layout/menu'
+import vHeader from '@/views/layout/header'
 export default {
-	name: 'noFound2',
 	components: {
-		vHeader,
-		vMenu
+		vMenu,
+		vHeader
+	},
+	data () {
+		const item = {
+			date: '2016-05-02',
+			name: '王小虎',
+			address: '上海市普陀区金沙江路 1518 弄'
+		}
+		return {
+			tableData: Array(20).fill(item)
+		}
 	}
 }
 </script>
-<style lang="scss" scoped>
-	.hm-notFound-cell {
-		.newfinno-con {
-			text-align: center;
-			margin-bottom: 20px;
-		}
-		.tips {
-			margin-top: 10px;
-			text-align: center;
-			h2{
-				font-size: 20px;
-				margin-bottom: 10px;
-			}
-			.m-box{
-				width: 295px;
-				margin: auto;
-			}
-			.m-text{
-				font-size: 12px;
-				line-height: 32px;
-			}
-		}
+<style>
+	.el-header {
+		background-color: #B3C0D1;
+		color: #333;
+		line-height: 40px;
+	}
+
+	.el-aside {
+		color: #333;
 	}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-aside>
+		<el-aside width="200px">
 			<el-menu
 				default-active="1"
 				class="el-menu-vertical-demo"
@@ -36,10 +36,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-	.el-menu-vertical-demo:not(.el-menu--collapse) {
-		width: 200px;
-		min-height: 400px;
-	}
-</style>
