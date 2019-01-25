@@ -28,7 +28,7 @@ export default {
 				const _data = _result.data
 				if (_data) {
 					await commit('USER_SET_INFO', _data.user)
-					router.push('/')
+					router.push('/index')
 				}
 			}
 		},

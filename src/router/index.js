@@ -10,7 +10,7 @@ export default new Router({
 			redirect: '/login'
 		},
 		{
-			path: '/',
+			path: '/index',
 			name: 'index',
 			meta: { title: '首页' },
 			component: () => import('@/views/index')
