@@ -1,22 +1,18 @@
 <template>
 	<div>
-		<el-header>
-			<HmHeader/>
-		</el-header>
-		<el-aside>
-			<HmMenu/>
-		</el-aside>
+		<v-header/>
+		<v-menu/>
 	</div>
 </template>
 
 <script>
-import HmHeader from '@/views/layout/header'
-import HmMenu from '@/views/layout/menu'
+import vHeader from '@/views/layout/header'
+import vMenu from '@/views/layout/menu'
 export default {
 	name: 'noFound2',
 	components: {
-		HmHeader,
-		HmMenu
+		vHeader,
+		vMenu
 	}
 }
 </script>

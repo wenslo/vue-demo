@@ -1,8 +1,8 @@
 <template>
 <div>
-	<el-container>
-		<HmHeader/>
-		<HmMenu/>
+	<el-container direction="vertical">
+		<v-header/>
+		<v-menu/>
 		<el-main>
 			<div class="hm-layout-cell pt-20 pb-20">
 				<transition name="el-fade-in">
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import HmHeader from '@/views/layout/header'
-import HmMenu from '@/views/layout/menu'
+import vHeader from '@/views/layout/header'
+import vMenu from '@/views/layout/menu'
 export default {
 	name: 'name',
 	components: {
-		HmHeader,
-		HmMenu
+		vHeader,
+		vMenu
 	}
 }
 </script>
