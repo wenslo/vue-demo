@@ -3,7 +3,7 @@
 <div class="hm-login-cell">
 	<div class="login-form">
 		<p class="logo mb-15"><img src="@/assets/images/logo.png" width="180" alt=""></p>
-		<h2 class="mb-20">{{$root.app.name}}为您提供驾校一体化解决方案</h2>
+		<h2 class="mb-20">{{$root.app.name}}为您提供机构一体化解决方案</h2>
 		<el-input
 			prefix-icon="icon-user"
 			class="username"
