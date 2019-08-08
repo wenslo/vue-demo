@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import vHeader from '@/views/layout/header'
 
 Vue.use(Router)
 
@@ -8,12 +9,6 @@ export default new Router({
 		{
 			path: '',
 			redirect: '/login'
-		},
-		{
-			path: '/index',
-			name: 'index',
-			meta: { title: '首页' },
-			component: () => import('@/views/index')
 		},
 		{
 			path: '/user',

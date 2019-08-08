@@ -55,20 +55,6 @@
 				</el-tag>
 			</template>
 		</el-table-column>
-		<el-table-column
-			align="center"
-			prop="organizations"
-			label="机构信息"
-		>
-			<template slot-scope="scope">
-				<el-tag v-if="scope.row.organizations.length === 0">
-					{{ '无' }}
-				</el-tag>
-				<el-tag :key="index" v-for="(organization, index) in scope.row.organizations">
-					{{ organization.name}}
-				</el-tag>
-			</template>
-		</el-table-column>
 	</el-table>
 	<el-pagination
 		background
