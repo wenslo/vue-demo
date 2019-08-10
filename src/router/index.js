@@ -11,7 +11,7 @@ export default new Router({
 		{
 			path: '/user',
 			name: 'user',
-			component: () => import('@/views/user/index'),
+			component: () => import('@/views/layout/index'),
 			redirect: '/user/list',
 			children: [
 				{
