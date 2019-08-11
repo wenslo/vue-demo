@@ -1,13 +1,7 @@
 <template>
 	<div>
 		<el-header>
-			<el-col :span="24" class="header">
-				<el-col :span="5" class="logo" :class="'logo-width'">
-					<a href="/" style="text-decoration:none;color:#000;">
-						后台管理系统
-					</a>
-				</el-col>
-			</el-col>
+			<navbar></navbar>
 		</el-header>
 		<el-container>
 			<el-aside width="200px">
@@ -33,8 +27,10 @@
 </template>
 
 <script>
+import Navbar from './Navbar'
 export default {
 	name: 'index',
+	components: { Navbar },
 	data () {
 		return {
 			username: '',
